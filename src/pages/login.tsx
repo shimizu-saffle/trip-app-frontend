@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
 import { css } from '../../styled-system/css'
-import { styled } from '../../styled-system/jsx'
+import BrandButton from '../components/BrandButton'
 import googleLogo from '/public/google_logo.png'
 
 const Login: NextPage = () => {
@@ -19,17 +19,15 @@ const Login: NextPage = () => {
       >
         <h1 className={css({ fontSize: '7xl' })}>Tabiyori</h1>
         <div>{/* React Lottie でアニメーションを配置 */}</div>
-        <styled.button
-          bg={'white'}
-          color={'black'}
-          padding={'1rem'}
-          borderRadius={24}
-          border={'black 1px solid'}
-          cursor={'pointer'}
-        >
-          <Image src={googleLogo} alt="Google logo"></Image>
-          Google ログイン
-        </styled.button>
+        <BrandButton
+          label={'Googleでログイン'}
+          brandLogo={
+            <Image src={googleLogo} alt="Google logo" width={50}></Image>
+          }
+          onClick={() => {}}
+          backgroundColor={'white'}
+          labelColor={'gray'}
+        />
       </div>
     </>
   )
