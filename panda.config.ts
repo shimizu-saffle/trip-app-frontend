@@ -11,4 +11,5 @@ export default defineConfig({
     extend: {},
   },
   outdir: 'styled-system',
+  jsxFramework: 'react',
 })

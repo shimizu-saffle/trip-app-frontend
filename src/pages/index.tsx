@@ -6,11 +6,16 @@ const Home: NextPage = () => {
     <>
       <div
         className={css({
-          fontSize: '2xl',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100vh',
+          fontSize: '9xl',
           fontWeight: 'bold',
         })}
       >
-        Trip App 🛩
+        Trip App 🐫
       </div>
     </>
   )
