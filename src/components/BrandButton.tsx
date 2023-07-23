@@ -30,6 +30,10 @@ const BrandButton: React.FC<BrandButtonProps> = ({
       fontSize={'2rem'}
       gap={'1rem'}
       boxShadow={'0px 4px 8px rgba(0, 0, 0, 0.2)'}
+      _active={{
+        transform: 'scale(0.98)',
+        boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
+      }}
     >
       {brandLogo}
       {label}
