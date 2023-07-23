@@ -1,14 +1,19 @@
+import type { NextPage } from 'next'
 import { css } from '../../styled-system/css'
 
-export default function Home() {
+const Home: NextPage = () => {
   return (
-    <div
-      className={css({
-        fontSize: '2xl',
-        fontWeight: 'bold',
-      })}
-    >
-      Trip App 🛩
-    </div>
+    <>
+      <div
+        className={css({
+          fontSize: '2xl',
+          fontWeight: 'bold',
+        })}
+      >
+        Trip App 🛩
+      </div>
+    </>
   )
 }
+
+export default Home
