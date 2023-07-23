@@ -9,7 +9,9 @@ const Login: NextPage = () => {
     <>
       <Flex align={'center'} justify={'center'} height={'100vh'}>
         <VStack gap={'2rem'}>
-          <styled.h1 fontSize={'7xl'}>Tabiyori</styled.h1>
+          <styled.h1 textStyle={'lg'} color={'trip-green'}>
+            Tabiyori
+          </styled.h1>
           <div>{/* React Lottie でアニメーションを配置 */}</div>
           <BrandButton
             label={'Googleでログイン'}
@@ -20,7 +22,7 @@ const Login: NextPage = () => {
               // TODO(shimizu-saffle): Googleログイン処理
             }}
             backgroundColor={'white'}
-            labelColor={'gray'}
+            labelColor={'trip-gray'}
           />
         </VStack>
       </Flex>
