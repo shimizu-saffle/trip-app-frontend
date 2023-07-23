@@ -8,6 +8,6 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <main className={inter.className}>
       <Component {...pageProps} />
-    </main>
-  );
+      </main>      
+  )
 }

@@ -13,6 +13,8 @@
     "recoil": "^0.7.7"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.7.0"
+    "@pandacss/dev": "^0.7.0",
+    "eslint": "^8.45.0",
+    "prettier": "^3.0.0"
   }
 }
