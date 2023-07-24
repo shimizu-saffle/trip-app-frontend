@@ -14,9 +14,7 @@ const Login: NextPage = () => {
         <styled.h1 textStyle={'lg'} color={'trip-green'}>
           Tabiyori
         </styled.h1>
-
         <Lottie animationData={lottieJson} play style={{ height: '45vh' }} />
-
         <BrandButton
           label={'Googleでログイン'}
           brandLogo={
