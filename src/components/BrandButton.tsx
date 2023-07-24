@@ -18,6 +18,7 @@ const BrandButton: React.FC<BrandButtonProps> = ({
 }) => {
   return (
     <styled.button
+      md={{ fontSize: '2rem' }}
       onClick={onClick}
       display={'flex'}
       alignItems={'center'}
@@ -26,7 +27,8 @@ const BrandButton: React.FC<BrandButtonProps> = ({
       padding={'1rem'}
       cursor={'pointer'}
       color={labelColor}
-      textStyle={'md'}
+      textStyle={'trip'}
+      fontWeight={'bold'}
       gap={'1rem'}
       boxShadow={'0px 4px 8px rgba(0, 0, 0, 0.2)'}
       _active={{

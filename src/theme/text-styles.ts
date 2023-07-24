@@ -9,12 +9,10 @@ export const textStyles = defineTextStyles({
       fontSize: '5rem',
     },
   },
-  md: {
+  trip: {
     description: 'The md text style - used in paragraphs',
     value: {
       fontFamily: 'Hiragino Maru Gothic Pro',
-      fontWeight: 'bold',
-      fontSize: '2rem',
     },
   },
 })
