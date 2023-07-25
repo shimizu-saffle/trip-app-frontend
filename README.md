@@ -26,24 +26,22 @@ Tabiyori はシンプルで使いやすい旅のしおりアプリです 🗺️
     cd tabiyori
     ```
 
-3. 依存関係をインストールします。
+3. pnpm が未インストールの場合は、以下のコマンドでグローバルにインストールします。
 
     ```shell
-    npm install
-    # or
-    pnpm install
-    # or
-    yarn install
+    npm install -g pnpm
     ```
 
-4. 開発サーバーを起動します。
+4. 依存関係をインストールします。
 
     ```shell
-    npm run dev
-    # or
+    pnpm install
+    ```
+
+5. 開発サーバーを起動します。
+
+    ```shell
     pnpm dev
-    # or
-    yarn dev
     ```
 
 [http://localhost:3000](http://localhost:3000) でアプリが起動します🚀
