@@ -15,7 +15,7 @@ const Home: NextPage = () => {
           fontWeight: 'bold',
         })}
       >
-        Trip App 🐫
+        Tabiyori 🌏
       </div>
     </>
   )
