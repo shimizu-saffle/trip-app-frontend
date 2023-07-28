@@ -1,5 +1,5 @@
-import firebase from 'firebase/app'
-import 'firebase/auth'
+import { getApp, getApps, initializeApp } from 'firebase/app'
+import { getAuth } from 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -11,10 +11,7 @@ const firebaseConfig = {
   measurementId: process.env.FIREBASE_MEASUREMENT_ID,
 }
 
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig)
-} else {
-  firebase.app()
-}
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp()
+const auth = getAuth(app)
 
-export default firebase
+export { app, auth }
