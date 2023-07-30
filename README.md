@@ -17,13 +17,13 @@ Tabiyori はシンプルで使いやすい旅のしおりアプリです 🗺️
 1. リポジトリをクローンします。
 
     ```shell
-    git clone https://github.com/shimizu-saffle/tabiyori.git
+    git clone https://github.com/shimizu-saffle/trip-app-frontend.git
     ```
 
 2. ディレクトリに移動します。
 
     ```shell
-    cd tabiyori
+    cd trip-app-frontend
     ```
 
 3. pnpm が未インストールの場合は、以下のコマンドでグローバルにインストールします。
