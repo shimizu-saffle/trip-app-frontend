@@ -34,7 +34,6 @@ const Login: NextPage = () => {
           }
           onClick={signInWithGoogle}
           backgroundColor={'white'}
-          labelColor={'trip-gray'}
         />
       </VStack>
     </Flex>
