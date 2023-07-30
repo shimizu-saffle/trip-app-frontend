@@ -5,8 +5,10 @@ import lottieJson from 'public/lottie/travel-loading.json'
 import Lottie from 'react-lottie-player'
 import { Flex, VStack, styled } from '../../styled-system/jsx'
 import BrandButton from '../components/BrandButton'
+import { useSignInWithGoogle } from '../hooks/useSignInWithGoogle'
 
 const Login: NextPage = () => {
+  const { signInWithGoogle } = useSignInWithGoogle()
   return (
     <Flex align={'center'} justify={'center'} height={'100vh'}>
       <VStack gap={'2rem'} padding={'2rem'} sm={{ gap: '5rem' }}>
@@ -30,9 +32,7 @@ const Login: NextPage = () => {
           brandLogo={
             <Image src={googleLogo} alt="Google logo" width={50}></Image>
           }
-          onClick={() => {
-            // TODO(shimizu-saffle): Googleログイン処理
-          }}
+          onClick={signInWithGoogle}
           backgroundColor={'white'}
           labelColor={'trip-gray'}
         />
