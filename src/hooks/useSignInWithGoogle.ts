@@ -1,7 +1,7 @@
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import nookies from 'nookies'
 import { useRecoilState } from 'recoil'
-import { appUserState } from '../atoms/userAtom'
+import { appUserState } from '../atoms/appUserAtom'
 import { createUserWithFirebaseIdToken } from '../lib/api/authApi'
 import { auth } from '../lib/firebase/clientApp'
 
