@@ -1,47 +1,31 @@
 # Tabiyori
 
-Tabiyori はシンプルで使いやすい旅のしおりアプリです 🗺️
+Tabiyori is a simple and user-friendly trip planning app 🗺️
 
-## 技術スタック
+## Tech Stack
 
-- Web フレームワーク：[Next.js 13](https://nextjs.org/)
-- CSS フレームワーク：[Panda CSS](https://panda-css.com/)
-- 状態管理：[Recoil](https://recoiljs.org/)
+- Web Framework: [Next.js 13](https://nextjs.org/)
+- CSS Framework: [Panda CSS](https://panda-css.com/)
+- State Management: [Recoil](https://recoiljs.org/)
 
-## 関連リポジトリ
+## Related Repositories
 
-ネイティブアプリ版：<https://github.com/seigi0714/trip-app-nativeapp>
+App(Flutter): <https://github.com/seigi0714/trip-app-nativeapp>
 
-## 開発環境のセットアップ
+## Development Setup
 
-1. リポジトリをクローンします。
+```shell
+# Clone the repository
+git clone https://github.com/shimizu-saffle/trip-app-frontend.git
 
-    ```shell
-    git clone https://github.com/shimizu-saffle/trip-app-frontend.git
-    ```
+# Move into the directory
+cd trip-app-frontend
 
-2. ディレクトリに移動します。
+# Install pnpm globally if not installed
+npm install -g pnpm
 
-    ```shell
-    cd trip-app-frontend
-    ```
+# Install the dependencies
+pnpm install
 
-3. pnpm が未インストールの場合は、以下のコマンドでグローバルにインストールします。
-
-    ```shell
-    npm install -g pnpm
-    ```
-
-4. 依存関係をインストールします。
-
-    ```shell
-    pnpm install
-    ```
-
-5. 開発サーバーを起動します。
-
-    ```shell
-    pnpm dev
-    ```
-
-[http://localhost:3000](http://localhost:3000) でアプリが起動します🚀
+# Start the development server
+pnpm dev
