@@ -2,7 +2,7 @@ import axios from 'axios'
 import nookies from 'nookies'
 
 const apiClient = axios.create({
-  baseURL: `http://${process.env.NEXT_PUBLIC_TRIPAPP_API_URL}:${process.env.NEXT_PUBLIC_TRIPAPP_API_PORT}/api/v1`,
+  baseURL: `http://${process.env.NEXT_PUBLIC_TRIPAPP_API_URL}:${process.env.NEXT_PUBLIC_TRIPAPP_API_PORT}/private_api/v1`,
 })
 
 apiClient.interceptors.request.use(
