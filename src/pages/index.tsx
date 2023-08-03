@@ -7,15 +7,15 @@ import { appUserState } from '../atoms/appUserAtom'
 
 const Home: NextPage = () => {
   const router = useRouter()
-  const [appUser] = useRecoilState(appUserState)
+  const [currentUser] = useRecoilState(appUserState)
 
   useEffect(() => {
-    if (appUser === null) {
+    if (currentUser === null) {
       router.push(`/login`)
     }
-  }, [appUser, router])
+  }, [currentUser, router])
 
-  if (appUser === null) {
+  if (currentUser === null) {
     return null
   }
   return (
