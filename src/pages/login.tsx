@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query'
 import type { NextPage } from 'next'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -5,19 +6,19 @@ import googleLogo from 'public/images/google_logo.png'
 import lottieJson from 'public/lottie/travel-loading.json'
 import { useEffect } from 'react'
 import Lottie from 'react-lottie-player'
-import { useRecoilValue } from 'recoil'
 import { Flex, VStack, styled } from '../../styled-system/jsx'
-import { appUserState } from '../atoms/appUserAtom'
 import BrandButton from '../components/BrandButton'
+import { QUERY_KEYS } from '../constants/keys'
 import { useSignInWithGoogle } from '../hooks/useSignInWithGoogle'
+import { AppUser } from '../types/AppUser'
 
 const Login: NextPage = () => {
-  const currentUser = useRecoilValue(appUserState)
+  const { data: currentUser } = useQuery<AppUser>([QUERY_KEYS.AppUser])
   const { signInWithGoogle } = useSignInWithGoogle()
   const router = useRouter()
 
   useEffect(() => {
-    if (currentUser !== null) {
+    if (currentUser !== undefined) {
       router.push(`/`)
     }
   }, [currentUser, router])

@@ -1,16 +1,17 @@
+import { useQuery } from '@tanstack/react-query'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import { useRecoilState } from 'recoil'
 import { css } from '../../styled-system/css'
-import { appUserState } from '../atoms/appUserAtom'
+import { QUERY_KEYS } from '../constants/keys'
+import { AppUser } from '../types/AppUser'
 
 const Home: NextPage = () => {
   const router = useRouter()
-  const [currentUser] = useRecoilState(appUserState)
+  const { data: currentUser } = useQuery<AppUser>([QUERY_KEYS.AppUser])
 
   useEffect(() => {
-    if (currentUser === null) {
+    if (currentUser === undefined) {
       router.push(`/login`)
     }
   }, [currentUser, router])
