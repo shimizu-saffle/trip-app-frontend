@@ -11,7 +11,7 @@ const Home: NextPage = () => {
   const { data: currentUser } = useQuery<AppUser>([QUERY_KEYS.AppUser])
 
   useEffect(() => {
-    if (currentUser === undefined) {
+    if (!currentUser) {
       router.push(`/login`)
     }
   }, [currentUser, router])
