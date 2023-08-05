@@ -1,6 +1,6 @@
 # Tabiyori
 
-Tabiyori is a simple and user-friendly trip planning app 🗺️
+Tabiyori is a simple and user-friendly trip planning web application 🗺️
 
 ## Tech Stack
 
