@@ -13,7 +13,7 @@ import { useSignInWithGoogle } from '../hooks/useSignInWithGoogle'
 import { AppUser } from '../types/AppUser'
 
 const Login: NextPage = () => {
-  const { data: currentUser } = useQuery<AppUser>([QUERY_KEYS.AppUser])
+  const { data: currentUser } = useQuery<AppUser | null>([QUERY_KEYS.AppUser])
   const { signInWithGoogle } = useSignInWithGoogle()
   const router = useRouter()
 
