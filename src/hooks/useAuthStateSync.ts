@@ -1,5 +1,6 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { useQueryClient } from '@tanstack/react-query'
 import { User, onAuthStateChanged } from 'firebase/auth'
+import nookies from 'nookies'
 import { useEffect } from 'react'
 import { QUERY_KEYS } from '../constants/keys'
 import { createUserWithFirebaseIdToken } from '../lib/api/authApi'
@@ -8,31 +9,26 @@ import { AppUser } from '../types/AppUser'
 
 export const useAuthStateSync = () => {
   const queryClient = useQueryClient()
-
-  const mutation = useMutation(
-    async (token: string) => {
-      console.log('call mutation')
-      const appUser = await createUserWithFirebaseIdToken(token)
-      return appUser
-    },
-    {
-      onSuccess: (appUser: AppUser) => {
-        queryClient.setQueriesData([QUERY_KEYS.AppUser], appUser)
-      },
-    }
-  )
+  const currentUser = auth.currentUser
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user: User | null) => {
       console.log('call unsubscribe')
       if (user) {
         const token = await user.getIdToken()
-        mutation.mutate(token)
+        nookies.set(undefined, 'token', token)
+
+        const appUser = await createUserWithFirebaseIdToken(token)
+        queryClient.setQueriesData<AppUser | null>(
+          [QUERY_KEYS.AppUser],
+          appUser
+        )
       } else {
-        queryClient.setQueriesData([QUERY_KEYS.AppUser], undefined)
+        queryClient.setQueriesData<AppUser | null>([QUERY_KEYS.AppUser], null)
+        nookies.set(undefined, 'token', '')
       }
     })
 
     return unsubscribe
-  }, [mutation, queryClient])
+  }, [currentUser, queryClient])
 }
