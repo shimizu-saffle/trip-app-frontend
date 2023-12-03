@@ -1,29 +1,29 @@
-import { useQuery } from '@tanstack/react-query'
-import type { NextPage } from 'next'
+import type { GetServerSidePropsContext, NextPage } from 'next'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 import googleLogo from 'public/images/google_logo.png'
-import { useEffect } from 'react'
 import { css } from '../../styled-system/css'
 import BrandButton from '../components/BrandButton'
-import { QUERY_KEYS } from '../constants/keys'
 import { useLogoutProcess } from '../hooks/useLogoutProcess'
-import { AppUser } from '../types/AppUser'
+
+import { getServerAuthSession } from '../server/auth'
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const session = await getServerAuthSession(context)
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    }
+  }
+  return { props: {} }
+}
 
 const Home: NextPage = () => {
-  const router = useRouter()
-  const { data: currentUser } = useQuery<AppUser | null>([QUERY_KEYS.AppUser])
   const { runLogout } = useLogoutProcess()
 
-  useEffect(() => {
-    if (!currentUser) {
-      router.push(`/login`)
-    }
-  }, [currentUser, router])
-
-  if (currentUser === null) {
-    return null
-  }
   return (
     <>
       <div
