@@ -6,7 +6,6 @@ interface BrandButtonProps {
   brandLogo: ReactNode
   onClick: () => void
   backgroundColor: string
-  labelColor: string
 }
 
 const BrandButton: React.FC<BrandButtonProps> = ({
@@ -14,7 +13,6 @@ const BrandButton: React.FC<BrandButtonProps> = ({
   brandLogo,
   onClick,
   backgroundColor,
-  labelColor,
 }) => {
   return (
     <styled.button
@@ -26,7 +24,7 @@ const BrandButton: React.FC<BrandButtonProps> = ({
       borderRadius={24}
       padding={'1rem'}
       cursor={'pointer'}
-      color={labelColor}
+      color={'trip-gray'}
       textStyle={'trip'}
       fontWeight={'bold'}
       gap={'1rem'}
