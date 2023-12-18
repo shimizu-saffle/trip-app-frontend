@@ -1,6 +1,5 @@
 import type { GetServerSidePropsContext, NextPage } from 'next'
 import Image from 'next/image'
-import googleLogo from 'public/images/google_logo.png'
 import { css } from '../../styled-system/css'
 import BrandButton from '../components/BrandButton'
 import { useLogoutProcess } from '../hooks/useLogoutProcess'
@@ -41,7 +40,12 @@ const Home: NextPage = () => {
         <BrandButton
           label={'ログアウト'}
           brandLogo={
-            <Image src={googleLogo} alt="Google logo" width={50}></Image>
+            <Image
+              src={'/images/google_logo.png'}
+              alt="Google logo"
+              height={50}
+              width={50}
+            ></Image>
           }
           onClick={runLogout}
           backgroundColor={'white'}
