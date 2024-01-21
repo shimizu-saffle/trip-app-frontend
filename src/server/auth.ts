@@ -1,22 +1,21 @@
-import { GetServerSidePropsContext } from 'next'
-import nookies from 'nookies'
-import admin from '../lib/firebase/firebaseAdmin'
+import { DecodedIdToken } from 'firebase-admin/lib/auth/token-verifier'
+import { NextRequest } from 'next/server'
+import admin from './libs/firebaseAdmin'
 
-/**
- * サーバーサイドで認証セッションを取得する。
- *
- * @param {GetServerSidePropsContext} ctx - Next.jsのサーバーサイドプロップスコンテキスト
- * @returns {Promise<admin.auth.DecodedIdToken | null>} デコードされた ID トークン、またはトークンが存在しない場合や検証に失敗した場合は null
- */
-export const getServerAuthSession = async (
-  ctx: GetServerSidePropsContext
-): Promise<admin.auth.DecodedIdToken | null> => {
+export async function serverAuthCheck(
+  request: NextRequest
+): Promise<DecodedIdToken | null> {
+  if (!request.cookies) {
+    console.error('cookies is undefined.')
+    return null
+  }
+
+  const token = request.cookies.get('token')
+
+  if (!token) return null
+
   try {
-    const cookies = nookies.get(ctx)
-    const token = cookies.token
-    if (!token) return null
-
-    return await admin.auth().verifyIdToken(token)
+    return await admin.auth().verifyIdToken(token.value)
   } catch (error) {
     return null
   }
