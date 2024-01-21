@@ -1,3 +1,5 @@
+'use client'
+
 import { ReactNode } from 'react'
 import { styled } from '../../styled-system/jsx'
 
@@ -16,13 +18,13 @@ const BrandButton: React.FC<BrandButtonProps> = ({
 }) => {
   return (
     <styled.button
-      md={{ fontSize: '2rem' }}
       onClick={onClick}
+      md={{ fontSize: 'lg' }}
       display={'flex'}
       alignItems={'center'}
       backgroundColor={backgroundColor}
       borderRadius={24}
-      padding={'1rem'}
+      padding={4}
       cursor={'pointer'}
       color={'trip-gray'}
       textStyle={'trip'}
@@ -39,4 +41,5 @@ const BrandButton: React.FC<BrandButtonProps> = ({
     </styled.button>
   )
 }
+
 export default BrandButton

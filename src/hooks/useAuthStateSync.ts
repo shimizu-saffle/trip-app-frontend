@@ -13,7 +13,7 @@ export const useAuthStateSync = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user: User | null) => {
-      console.log('call unsubscribe')
+      console.log('onAuthStateChanged')
       if (user) {
         const token = await user.getIdToken()
         nookies.set(undefined, 'token', token)
@@ -23,9 +23,11 @@ export const useAuthStateSync = () => {
           [QUERY_KEYS.AppUser],
           appUser
         )
+        console.log('onAuthStateChanged: user')
       } else {
         queryClient.setQueriesData<AppUser | null>([QUERY_KEYS.AppUser], null)
         nookies.set(undefined, 'token', '')
+        console.log('onAuthStateChanged: null')
       }
     })
 

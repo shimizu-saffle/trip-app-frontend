@@ -4,7 +4,7 @@ import { textStyles } from './src/theme/text-styles'
 export default defineConfig({
   preflight: true,
   include: [
-    './src/pages/**/*.{js,jsx,ts,tsx}',
+    './src/app/**/*.{js,jsx,ts,tsx}',
     './src/components/**/*.{js,jsx,ts,tsx}',
   ],
   exclude: [],

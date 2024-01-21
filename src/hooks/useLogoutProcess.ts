@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { signOut } from 'firebase/auth'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { QUERY_KEYS } from '../constants/keys'
 import { auth } from '../lib/firebase/clientApp'
 import { AppUser } from '../types/AppUser'
