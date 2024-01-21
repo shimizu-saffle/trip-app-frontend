@@ -1,16 +1,7 @@
-import { redirect } from 'next/navigation'
-import { NextRequest } from 'next/server'
 import { Flex, VStack, styled } from '../../styled-system/jsx'
 import LogoutButton from '../components/LogoutButton'
-import { serverAuthCheck } from '../server/auth'
 
-const Home = async (request: NextRequest) => {
-  const user = await serverAuthCheck(request)
-
-  if (!user) {
-    return redirect('/login')
-  }
-
+const HomePage = async () => {
   return (
     <Flex align={'center'} justify={'center'} height={'100vh'}>
       <VStack gap={8}>
@@ -28,4 +19,4 @@ const Home = async (request: NextRequest) => {
   )
 }
 
-export default Home
+export default HomePage

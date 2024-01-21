@@ -5,6 +5,7 @@
 // extracting this part out into it's own file with 'use client' on top
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactNode, useState } from 'react'
+import AuthStateSync from '../components/AuthStateSync'
 
 export default function Providers({ children }: { children: ReactNode }) {
   const [queryClient] = useState(
@@ -21,6 +22,8 @@ export default function Providers({ children }: { children: ReactNode }) {
   )
 
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthStateSync>{children}</AuthStateSync>
+    </QueryClientProvider>
   )
 }
